@@ -17,8 +17,8 @@ class ConfirmationFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recipient = arguments!!.getString("recipient")
-        money = arguments!!.getParcelable("amount")
+        recipient = arguments!!.getString("recipient")!!
+        money = arguments!!.getParcelable("amount")!!
 
     }
 
@@ -32,7 +32,7 @@ class ConfirmationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val amount = money!!.amount
+        val amount = money.amount
         val confirmationMessage = "You have sent $amount to $recipient"
         view.findViewById<TextView>(R.id.confirmation_message).text = confirmationMessage
     }
